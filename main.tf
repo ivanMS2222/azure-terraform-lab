@@ -1,38 +1,50 @@
-# This file orchestrates the Terraform modules for deploying Azure infrastructure.
-
+// Configure the required provider
 provider "azurerm" {
   features {}
 }
 
-# Load sensitive variables from terraform.tfvars
-variable "resource_group_name" {}
-variable "location" {}
-
-# Create the resource group
-resource "azurerm_resource_group" "rg" {
+// Create the resource group
+resource "azurerm_resource_group" "main" {
   name     = var.resource_group_name
   location = var.location
 }
 
-# Network module
+// Create the virtual network and subnet using the network module
 module "network" {
   source              = "./modules/network"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
-  vnet_name           = "my-vnet"
-  subnet_name         = "my-subnet"
-  address_space       = ["10.0.0.0/16"]
-  subnet_prefix       = "10.0.1.0/24"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
+  vnet_name           = var.vnet_name
+  address_space       = var.address_space
+  subnet_name         = var.subnet_name
+  subnet_prefix       = var.subnet_prefix
 }
 
-# Virtual Machine module
+// Create a Network Security Group using the NSG module
+module "nsg" {
+  source              = "./modules/nsg"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
+  nsg_name            = var.nsg_name
+}
+
+// Create a Virtual Machine using the VM module
 module "vm" {
   source              = "./modules/vm"
-  resource_group_name = azurerm_resource_group.rg.name
-  location            = azurerm_resource_group.rg.location
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
+  vm_name             = var.vm_name
+  admin_username      = var.admin_username
+  admin_password      = var.admin_password
   subnet_id           = module.network.subnet_id
-  vm_name             = "my-vm"
-  admin_username      = "azureuser"
-  admin_password      = "P@ssword1234!" 
+  nsg_id              = module.nsg.nsg_id
 }
 
+// Create a storage account using the storage module
+module "storage" {
+  source              = "./modules/storage"
+  resource_group_name = azurerm_resource_group.main.name
+  location            = var.location
+  storage_account_name = var.storage_account_name
+  container_name      = var.container_name
+}

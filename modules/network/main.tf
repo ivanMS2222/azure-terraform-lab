@@ -11,7 +11,3 @@ resource "azurerm_subnet" "subnet" {
   virtual_network_name = azurerm_virtual_network.vnet.name
   address_prefixes     = [var.subnet_prefix]
 }
-
-output "subnet_id" {
-  value = azurerm_subnet.subnet.id
-}

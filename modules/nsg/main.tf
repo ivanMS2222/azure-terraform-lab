@@ -17,7 +17,3 @@ resource "azurerm_network_security_rule" "ssh" {
   resource_group_name         = var.resource_group_name
   network_security_group_name = azurerm_network_security_group.nsg.name
 }
-
-output "nsg_id" {
-  value = azurerm_network_security_group.nsg.id
-}

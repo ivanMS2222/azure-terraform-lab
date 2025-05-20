@@ -38,7 +38,3 @@ resource "azurerm_windows_virtual_machine" "vm" {
     version   = "latest"
   }
 }
-
-output "vm_name" {
-  value = azurerm_windows_virtual_machine.vm.name
-}

@@ -1,34 +1,65 @@
-// Azure region for all resources
+variable "resource_group_name" {
+  description = "Nombre del Resource Group"
+  type        = string
+}
+
 variable "location" {
-  description = "Azure region where resources will be deployed"
+  description = "Ubicación de los recursos"
   type        = string
   default     = "westeurope"
 }
 
-// Name of the resource group
-variable "resource_group_name" {
-  description = "Name of the resource group"
-  type        = string
-  default     = "rg-myproject"
-}
-
-// VM name
+# VM
 variable "vm_name" {
-  description = "Name of the virtual machine"
+  description = "Nombre de la máquina virtual"
   type        = string
-  default     = "my-linux-vm"
 }
 
-// Admin username for the VM
 variable "admin_username" {
-  description = "Admin username for the VM"
+  description = "Usuario administrador para la VM"
   type        = string
-  default     = "azureuser"
 }
 
-// Admin password for the VM (sensitive)
 variable "admin_password" {
-  description = "Admin password for the VM"
+  description = "Contraseña administrador para la VM"
   type        = string
   sensitive   = true
+}
+
+# Network
+variable "vnet_name" {
+  description = "Nombre de la red virtual"
+  type        = string
+}
+
+variable "address_space" {
+  description = "Espacio de direcciones de la VNet"
+  type        = string
+}
+
+variable "subnet_name" {
+  description = "Nombre de la subred"
+  type        = string
+}
+
+variable "subnet_prefix" {
+  description = "Prefijo de la subred"
+  type        = string
+}
+
+# NSG
+variable "nsg_name" {
+  description = "Nombre del Network Security Group"
+  type        = string
+}
+
+# Storage
+variable "storage_account_name" {
+  description = "Nombre de la cuenta de almacenamiento"
+  type        = string
+}
+
+variable "container_name" {
+  description = "Nombre del contenedor de blobs"
+  type        = string
 }

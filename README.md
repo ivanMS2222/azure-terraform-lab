@@ -55,5 +55,3 @@ Once deployed, Terraform will display output values such as:
 • The project is structured to facilitate growth and reuse.
 
 • You can extend it with other modules such as databases, load balancers, or CI/CD integration.
-
-• To manage state remotely, configure the backend.tf file and create the corresponding storage container.

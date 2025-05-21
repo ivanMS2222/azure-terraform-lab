@@ -1,10 +1,10 @@
-resource_group_name = "rg-azure-portfolio"
+resource_group_name = "ivanms-azure-terraform-lab"
 location            = "westeurope"
 
 # VM
-vm_name        = "vm-demo"
-admin_username = "azureuser"
-admin_password = "P@ssw0rd1234!"  # Solo para pruebas
+vm_name        = "vm1-lab"
+admin_username = "azureuser1"
+admin_password = "azureuser1"  # Solo para pruebas
 
 # Red
 vnet_name      = "vnet-demo"
@@ -16,5 +16,5 @@ subnet_prefix  = "10.0.1.0/24"
 nsg_name = "nsg-demo"
 
 # Storage
-storage_account_name = "stportfolio123"      # Debe ser único a nivel mundial
+storage_account_name = "stlab1"      # Debe ser único a nivel mundial
 container_name       = "blobs-demo"

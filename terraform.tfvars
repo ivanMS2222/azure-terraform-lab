@@ -1,4 +1,4 @@
-resource_group_name = "rg-azure-portfolio"
+resource_group_name = "ivanms-terraform-lab"
 location            = "westeurope"
 
 # VM
@@ -16,5 +16,5 @@ subnet_prefix  = "10.0.1.0/24"
 nsg_name = "nsg-demo"
 
 # Storage
-storage_account_name = "stportfolio123"      # Debe ser único a nivel mundial
+storage_account_name = "stlabivanms"      # Debe ser único a nivel mundial
 container_name       = "blobs-demo"

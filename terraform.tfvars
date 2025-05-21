@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 resource_group_name = "ivanms-azure-terraform-lab"
-=======
-resource_group_name = "ivanms-terraform-lab"
->>>>>>> 3976afa62dea7e441429fe2ec0f84d4c0bf7f366
 location            = "westeurope"
 
 # VM
@@ -20,9 +16,5 @@ subnet_prefix  = "10.0.1.0/24"
 nsg_name = "nsg-demo"
 
 # Storage
-<<<<<<< HEAD
 storage_account_name = "stlab1"      # Debe ser único a nivel mundial
-=======
-storage_account_name = "stlabivanms"      # Debe ser único a nivel mundial
->>>>>>> 3976afa62dea7e441429fe2ec0f84d4c0bf7f366
 container_name       = "blobs-demo"

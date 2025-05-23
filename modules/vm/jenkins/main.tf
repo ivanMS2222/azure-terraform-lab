@@ -5,11 +5,8 @@ resource "azurerm_linux_virtual_machine" "jenkins" {
   size                = var.vm_size
   admin_username      = var.admin_username
   network_interface_ids = [azurerm_network_interface.jenkins.id]
-
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = file(var.ssh_public_key_path)
-  }
+  admin_password        = var.admin_password
+  disable_password_authentication = false
 
   os_disk {
     caching              = "ReadWrite"

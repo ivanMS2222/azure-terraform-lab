@@ -36,7 +36,7 @@ module "vm_master" {
   vm_name             = var.master_vm_name
   vm_size             = var.master_vm_size
   admin_username      = var.master_admin_username
-  ssh_public_key_path = var.ssh_public_key_path
+  admin_password      = var.admin_password
   disk_size_gb        = var.master_disk_size_gb
   os                  = var.master_os
   tags                = var.default_tags
@@ -66,7 +66,7 @@ module "vm_jenkins" {
   vm_name             = var.jenkins_vm_name
   vm_size             = var.jenkins_vm_size
   admin_username      = var.jenkins_admin_username
-  ssh_public_key_path = var.ssh_public_key_path
+  admin_password      = var.admin_password
   disk_size_gb        = var.jenkins_disk_size_gb
   os                  = var.jenkins_os
   tags                = var.default_tags
@@ -81,7 +81,7 @@ module "workers" {
   instance_count      = var.workers_instance_count
   vm_size             = var.workers_vm_size
   admin_username      = var.workers_admin_username
-  ssh_public_key_path = var.ssh_public_key_path
+  admin_password      = var.admin_password
   disk_size_gb        = var.workers_disk_size_gb
   os                  = var.workers_os
   tags                = var.default_tags

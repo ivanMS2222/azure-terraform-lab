@@ -17,7 +17,7 @@ default_tags = {
 master_vm_name         = "vm-master"
 master_vm_size         = "Standard_B1s"
 master_admin_username  = "azureuser"
-ssh_public_key_path    = "C:/Users/ivanm/.ssh/id_rsa.pub"
+admin_password = "Azureuser123"
 master_disk_size_gb    = 30
 
 master_os = {

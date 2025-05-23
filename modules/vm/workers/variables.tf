@@ -22,10 +22,6 @@ variable "admin_username" {
   type = string
 }
 
-variable "ssh_public_key_path" {
-  type = string
-}
-
 variable "disk_size_gb" {
   type = number
 }
@@ -46,4 +42,10 @@ variable "instance_count" {
 
 variable "tags" {
   type = map(string)
+}
+
+variable "admin_password" {
+  description = "Password for admin user"
+  type        = string
+  sensitive   = true
 }

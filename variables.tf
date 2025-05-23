@@ -37,10 +37,6 @@ variable "master_admin_username" {
   type = string
 }
 
-variable "ssh_public_key_path" {
-  type = string
-}
-
 variable "master_disk_size_gb" {
   type = number
 }
@@ -128,4 +124,10 @@ variable "workers_os" {
     sku       = string
     version   = string
   })
+}
+
+variable "admin_password" {
+  description = "Password for the admin user"
+  type        = string
+  sensitive   = true
 }

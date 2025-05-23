@@ -17,6 +17,7 @@ azure-infra-portfolio/
 │   ├── vm/                # Virtual Machine definitions
 │   ├── nsg/               # Network Security Groups with inbound rules
 │   ├── storage/           # Storage account and blob container
+├── ansible/
 ````
 
 ## 🔧 Requirements

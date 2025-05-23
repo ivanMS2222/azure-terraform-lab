@@ -72,17 +72,17 @@ module "vm_jenkins" {
   tags                = var.default_tags
 }
 
-module "vm_targets" {
-  source              = "./modules/vm/Targets"
+module "workers" {
+  source              = "./modules/vm/workers"
   location            = var.location
   resource_group_name = azurerm_resource_group.main.name
-  subnet_id           = module.network.subnet_ids["targets"]
-  vm_name_prefix      = var.targets_vm_name_prefix
-  instance_count      = var.targets_instance_count
-  vm_size             = var.targets_vm_size
-  admin_username      = var.targets_admin_username
+  subnet_id           = module.network.subnet_ids["workers"]
+  vm_name_prefix      = var.workers_vm_name_prefix
+  instance_count      = var.workers_instance_count
+  vm_size             = var.workers_vm_size
+  admin_username      = var.workers_admin_username
   ssh_public_key_path = var.ssh_public_key_path
-  disk_size_gb        = var.targets_disk_size_gb
-  os                  = var.targets_os
+  disk_size_gb        = var.workers_disk_size_gb
+  os                  = var.workers_os
   tags                = var.default_tags
 }

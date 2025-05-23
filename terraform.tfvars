@@ -1,4 +1,4 @@
-resource_group = "rg-lab-infra"
+resource_group = "rg-lab-ivanms"
 location            = "westeurope"
 vnet_name           = "vnet-lab"
 vnet_address_space  = ["10.0.0.0/16"]
@@ -17,28 +17,41 @@ default_tags = {
 master_vm_name         = "vm-master"
 master_vm_size         = "Standard_B1s"
 master_admin_username  = "azureuser"
-ssh_public_key_path    = "~/.ssh/id_rsa.pub"
+ssh_public_key_path    = "C:/Users/ivanm/.ssh/id_rsa.pub"
 master_disk_size_gb    = 30
 
 master_os = {
   publisher = "Canonical"
   offer     = "UbuntuServer"
-  sku       = "20_04-lts-gen2"
+  sku       = "18.04-LTS"
   version   = "latest"
 }
 
-storage_account_name    = "mystorageacct01"
-nsg_name                = "my-nsg"
+storage_account_name    = "stgaccivanmslab"
+nsg_name                = "ivanms-nsg"
 
 jenkins_vm_name         = "jenkins-server"
 jenkins_vm_size         = "Standard_DS1_v2"
 jenkins_admin_username  = "adminjenkins"
 jenkins_disk_size_gb    = 30
-jenkins_os              = "UbuntuLTS"
+jenkins_os = {
+  publisher = "Canonical"
+  offer     = "UbuntuServer"
+  sku       = "18.04-LTS"
+  version   = "latest"
+}
 
-targets_vm_name_prefix  = "target-vm"
-targets_instance_count  = 3
-targets_vm_size         = "Standard_B1ms"
-targets_admin_username  = "admintarget"
-targets_disk_size_gb    = 20
-targets_os              = "UbuntuLTS"
+workers_vm_name_prefix  = "target-vm"
+workers_instance_count  = 3
+workers_vm_size         = "Standard_B1ms"
+workers_admin_username  = "admintarget"
+workers_disk_size_gb    = 40
+workers_os = {
+  publisher = "Canonical"
+  offer     = "UbuntuServer"
+  sku       = "18.04-LTS"
+  version   = "latest"
+}
+
+
+

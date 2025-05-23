@@ -94,34 +94,34 @@ variable "jenkins_os" {
     version   = string
   })
 }
-# Variables para VMs Targets
-variable "targets_vm_name_prefix" {
-  description = "Prefijo para los nombres de las máquinas virtuales targets"
+# Variables para VMs workers
+variable "workers_vm_name_prefix" {
+  description = "Prefijo para los nombres de las máquinas virtuales workers"
   type        = string
 }
 
-variable "targets_instance_count" {
-  description = "Número de instancias para las VMs targets"
+variable "workers_instance_count" {
+  description = "Número de instancias para las VMs workers"
   type        = number
 }
 
-variable "targets_vm_size" {
-  description = "Tamaño de las máquinas virtuales targets"
+variable "workers_vm_size" {
+  description = "Tamaño de las máquinas virtuales workers"
   type        = string
 }
 
-variable "targets_admin_username" {
-  description = "Nombre de usuario administrador para las VMs targets"
+variable "workers_admin_username" {
+  description = "Nombre de usuario administrador para las VMs workers"
   type        = string
 }
 
-variable "targets_disk_size_gb" {
-  description = "Tamaño del disco en GB para las VMs targets"
+variable "workers_disk_size_gb" {
+  description = "Tamaño del disco en GB para las VMs workers"
   type        = number
 }
 
-variable "targets_os" {
-  description = "Imagen del sistema operativo para las VMs targets"
+variable "workers_os" {
+  description = "Imagen del sistema operativo para las VMs workers"
   type = object({
     publisher = string
     offer     = string

@@ -1,0 +1,8 @@
+- name: Instalar NGINX en VMs destino
+  hosts: targets
+  become: yes
+  tasks:
+    - name: Instalar NGINX
+      apt:
+        name: nginx
+        state: present
